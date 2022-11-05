@@ -20,5 +20,5 @@ on:
   steps: 
     - name: "testing github action"   
       run: pwd
-    -name: "testing print" 
+    - name: "testing print" 
       run: echo ahmed
