@@ -2,13 +2,15 @@ on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
-      - name: "before printing the folder containts"
-        run: ls -a
       - uses: actions/checkout@v3
-      - name: "after printing the folder containts"
-        run: ls -a
+
+      - name: " login to dockerhub"
+        run: docker login --username ${{ secrets.ABD00_FARED}} --password ${{ secrets.TOKEN }}
+      - name: " building docker "
+        run: docker build -t ${{ secrets.ABD00_FARED}}/docker-image-creation .
+      - name: " pushing to docker hub "
+        run: docker push ${{ secrets.ABD00_FARED}}/docker-image-creation
