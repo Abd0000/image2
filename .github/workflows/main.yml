@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: " login to dockerhub"
-        run: docker login --username abd00 --password Abdo&Fared200200  
+        run: docker login --username ${{ secrets.DOCKER_USERNAME}} --password ${{ secrets.DOCKER_PASSWORD }} 
       - name: " building docker "
-        run: docker build -t abd00/docker-image-creation .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME}}/docker-image-creation .
       - name: " pushing to docker hub "
-        run: docker push abd00/docker-image-creation 
+        run: docker push ${{ secrets.DOCKER_USERNAME}}/docker-image-creation 
