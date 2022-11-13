@@ -7,7 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
-      - name: "testing github actions"
-        run: pwd
-      - name: "testing printing"
-        run: echo abdo
+      - name: "before printing the folder containts"
+        run: ls -a
+      - uses: actions/checkout@v3
+      - name: "after printing the folder containts"
+        run: ls -a
